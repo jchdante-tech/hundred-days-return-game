@@ -1,0 +1,123 @@
+/* Original painted objects are decoration; all values and labels remain live. */
+.game-icon {
+  display: inline-block;
+  width: var(--game-icon-size, 44px);
+  height: var(--game-icon-size, 44px);
+  flex: none;
+  background-image: url('/art/game-icons-v18.png');
+  background-size: 400% 300%;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  pointer-events: none;
+  user-select: none;
+}
+.app-header { gap: clamp(18px, 2.2vw, 34px); min-height: 116px; }
+.app-header .wordmark { --brand-logo-width: 236px; flex: none; }
+.app-header .account-line { gap: clamp(15px, 2.1vw, 34px); }
+.account-line > div,.account-line .debt-resource { gap: 10px; }
+.account-line .game-icon { --game-icon-size: 45px; }
+.account-line strong { white-space: nowrap; }
+.account-line small { position: absolute; left: 55px; top: calc(100% + 4px); font-size: 10px; }
+.game-day-dial {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  border-radius: 0;
+}
+.game-day-dial > img { width: 100%; height: 100%; display: block; user-select: none; }
+.game-day-dial-face {
+  position: absolute;
+  inset: 29% 25% 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 2px 2px #0009;
+}
+.game-day-dial .game-day-dial-face span { font: 10px/1.4 var(--serif); letter-spacing: .08em; margin: 0; white-space: nowrap; }
+.game-day-dial .game-day-dial-face strong { font: 29px/1.05 Georgia,serif; font-variant-numeric: tabular-nums; }
+.game-nav { left: 20px; top: 178px; gap: 11px; }
+.game-nav button { width: 70px; min-height: 73px; padding: 7px 3px; gap: 3px; }
+.game-nav .game-icon { --game-icon-size: 46px; }
+.game-nav button > span { position: relative; font: 11px/1.4 var(--serif); letter-spacing: .06em; }
+.game-nav .help-button { margin-top: 5px; min-height: 66px; }
+.contract-countdown { align-items: center; padding: 5px 12px 5px 5px; gap: 8px; background: #0b191bc4; }
+.contract-countdown .game-icon { --game-icon-size: 38px; }
+.telegram-masthead .game-icon { --game-icon-size: 32px; margin-right: 0; }
+.time-console-time { gap: 7px; }
+.time-console-time .game-icon { --game-icon-size: 31px; }
+.time-console-day { display: none; }
+.loading-screen .brand-logo { --brand-logo-width: 300px; }
+
+@media (min-width:721px) and (max-height:780px) {
+  .game-shell .game-nav { top: 134px; max-height: calc(100svh - 146px); gap: 8px; }
+  .game-nav button,.game-nav .help-button { min-height: 63px; padding-block: 4px; gap: 2px; }
+  .game-nav .game-icon { --game-icon-size: 40px; }
+}
+
+@media (min-width:721px) and (max-width:1180px) {
+  .app-header { gap: 18px; }
+  .app-header .wordmark { --brand-logo-width: 190px; }
+  .account-line .game-icon { --game-icon-size: 34px; }
+  .app-header .account-line { gap: 15px; }
+  .account-line > div,.account-line .debt-resource { gap: 7px; }
+  .account-line strong { font-size: 20px; }
+  .account-line small { left: 41px; }
+  .game-day-dial { width: 86px; height: 86px; }
+  .game-day-dial .game-day-dial-face strong { font-size: 25px; }
+  .game-nav { left: 13px; }
+  .game-nav button { width: 65px; }
+}
+@media (min-width:721px) and (max-width:850px) {
+  .app-header { flex-wrap: wrap; gap: 8px 18px; padding-top: 8px; }
+  .app-header .account-line { order: 3; flex-basis: 100%; justify-content: space-between; padding: 0 4px 20px; }
+  .game-day-dial { margin-left: auto; }
+  .game-nav { top: 220px; }
+}
+@media (max-width:720px) {
+  .app-header { gap: 9px; min-height: 0; padding-top: 6px; }
+  .app-header .wordmark { --brand-logo-width: 215px; }
+  .game-day-dial { width: 76px; height: 76px; margin-left: auto; }
+  .game-day-dial .game-day-dial-face span { font-size: 8px; }
+  .game-day-dial .game-day-dial-face strong { font-size: 23px; }
+  .app-header .account-line { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; padding: 8px 0 5px; }
+  .account-line > div,.account-line .debt-resource { display: grid; grid-template-columns: 26px minmax(0,1fr); gap: 4px; align-items: center; }
+  .account-line > div > div,.account-line .debt-resource > div { display: contents; }
+  .account-line .game-icon { --game-icon-size: 26px; }
+  .account-line span { font-size: 10px; margin: 0; white-space: nowrap; }
+  .account-line strong { grid-column: 1 / -1; font-size: 19px; line-height: 1.25; }
+  .account-line small { display: none; }
+  .game-nav { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 7px; margin: 3px 0 17px; }
+  .game-nav button,.game-nav .help-button { width: 100%; min-height: 65px; padding: 6px 1px; gap: 4px; margin: 0; }
+  .game-nav .game-icon { --game-icon-size: 34px; }
+  .game-nav button > span { font-size: 10px; letter-spacing: 0; white-space: nowrap; }
+  .game-nav button::before { inset: auto 4px 24px; height: 8px; }
+  .contract-countdown { gap: 5px; padding: 3px 6px 3px 0; }
+  .contract-countdown .game-icon { --game-icon-size: 27px; }
+  .contract-countdown span { font-size: 10px; }
+  .contract-countdown strong { font-size: 21px; }
+  .time-console-time .game-icon { --game-icon-size: 26px; }
+}
+@media (min-width:361px) and (max-width:720px) {
+  .game-shell .game-nav { display: grid; padding: 0; margin-inline: 0; overflow: visible; }
+  .game-shell .game-nav button { width: 100%; min-width: 0; padding-inline: 1px; }
+}
+@media (max-width:360px) {
+  .app-header .wordmark { --brand-logo-width: 190px; }
+  .game-day-dial { width: 68px; height: 68px; }
+  .game-day-dial .game-day-dial-face strong { font-size: 20px; }
+  .account-line strong { font-size: 17px; }
+  .app-header .account-line { gap: 6px; }
+  .game-nav { gap: 5px; }
+  .game-nav .game-icon { --game-icon-size: 29px; }
+  .game-nav button > span { font-size: 9px; }
+  .game-nav button,.game-nav .help-button { min-height: 59px; }
+  .room-heading h1 > span { display: none; }
+  .time-console-time { gap: 5px; }
+  .time-console-time strong { font-size: 20px; }
+  .time-console-phase,.time-console-state { font-size: 10px; }
+}

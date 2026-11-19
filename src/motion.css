@@ -1,0 +1,184 @@
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --motion-dialog-duration: 250ms;
+  --motion-feedback-duration: 200ms;
+  --motion-reduced-duration: 100ms;
+}
+
+.motion-dialog {
+  width: 100%;
+  max-width: min(540px, calc(100vw - 32px));
+  max-height: calc(100svh - 40px);
+  overflow-y: auto;
+  padding: 25px;
+  border: 1px solid #655c3a;
+  border-radius: 5px;
+  background: #1b261d;
+  color: var(--text, #e1e5dd);
+  box-shadow: 0 25px 100px #0007;
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: center;
+  animation: none;
+  transition:
+    opacity var(--motion-dialog-duration) var(--ease-out),
+    transform var(--motion-dialog-duration) var(--ease-out);
+}
+
+.motion-dialog[data-state="entering"],
+.motion-dialog[data-state="exiting"] {
+  opacity: 0;
+  transform: scale(.96);
+}
+
+.motion-dialog::backdrop {
+  background: #080e0baf;
+  backdrop-filter: blur(5px);
+  opacity: 1;
+  transition: opacity var(--motion-dialog-duration) var(--ease-out);
+}
+
+.motion-dialog[data-state="entering"]::backdrop,
+.motion-dialog[data-state="exiting"]::backdrop {
+  opacity: 0;
+}
+
+.motion-dialog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 24px;
+}
+
+.motion-dialog-header h2 {
+  font-family: var(--serif, serif);
+  font-size: 22px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #e5d8b8;
+}
+
+.motion-dialog-close {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--muted, #9ba69b);
+}
+
+.motion-dialog-content form > .text-button { margin-top: 13px; }
+.motion-dialog-content form > .gold-button { margin-top: 26px; }
+
+.feedback {
+  position: fixed;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  max-width: calc(100vw - 32px);
+  margin-inline: auto;
+  padding: 15px 18px;
+  border: 1px solid #f0e4c3;
+  border-radius: 4px;
+  background: #e1d9c3;
+  color: #243524;
+  box-shadow: 0 15px 60px #0005;
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 1;
+  transform: translateY(0);
+  animation: none;
+  transition:
+    opacity var(--motion-feedback-duration) var(--ease-out),
+    transform var(--motion-feedback-duration) var(--ease-out);
+}
+
+.feedback[data-state="entering"],
+.feedback[data-state="exiting"] {
+  opacity: 0;
+  transform: translateY(15%);
+}
+
+.feedback[data-state="exiting"] { pointer-events: none; }
+.feedback-error { background: #322d22; color: #f0cfb5; border-color: #9a7455; }
+.feedback-message { overflow-wrap: anywhere; }
+
+.feedback-close {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin-left: 4px;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+}
+
+.motion-dialog .motion-dialog-close:active,
+.feedback .feedback-close:active {
+  transform: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .motion-dialog-close:hover { color: var(--text, #e1e5dd); background: #ffffff08; }
+  .feedback-close:hover { background: #0000000b; }
+  .feedback-error .feedback-close:hover { background: #ffffff08; }
+}
+
+@media (max-width: 760px) {
+  .motion-dialog { padding: 22px; }
+  .motion-dialog-header h2 { font-size: 21px; }
+  .feedback {
+    bottom: calc(81px + env(safe-area-inset-bottom));
+    width: calc(100% - 32px);
+    padding: 14px;
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-dialog,
+  .motion-dialog[data-state],
+  .feedback,
+  .feedback[data-state] {
+    transform: none;
+    transition-property: opacity;
+    transition-duration: var(--motion-reduced-duration) !important;
+  }
+  .motion-dialog::backdrop {
+    transition-duration: var(--motion-reduced-duration) !important;
+  }
+  .motion-dialog button,
+  .feedback button {
+    transform: none !important;
+  }
+}
+
+html[data-input="keyboard"] .motion-dialog,
+html[data-input="keyboard"] .motion-dialog[data-state],
+html[data-input="keyboard"] .motion-dialog::backdrop,
+html[data-input="keyboard"] .feedback,
+html[data-input="keyboard"] .feedback[data-state] {
+  opacity: 1;
+  transform: none;
+  transition: none !important;
+}
+
+html[data-input="keyboard"] .motion-dialog button,
+html[data-input="keyboard"] .feedback button {
+  transform: none !important;
+  transition: none !important;
+}

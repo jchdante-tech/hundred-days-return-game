@@ -1,0 +1,11 @@
+.brand-logo {
+  display: block;
+  width: var(--brand-logo-width, 208px);
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  flex: none;
+  user-select: none;
+}
+
+.brand-logo--hero { --brand-logo-width: 512px; }

@@ -1,0 +1,48 @@
+.chip-structure {
+  margin-top: 2px;
+  border-bottom: 1px solid #b6a16b38;
+  color: var(--muted);
+  font-size: 11px;
+}
+.chip-structure > summary {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  min-height: 38px;
+  padding: 8px 3px;
+  list-style: none;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+.chip-structure > summary::-webkit-details-marker { display: none; }
+.chip-structure > summary:hover { background-color: #c7ad7520; color: #e3d2ad; }
+.chip-structure > summary:focus-visible { outline: 2px solid #d9bd82; outline-offset: 2px; }
+.chip-summary-title { color: #dac79c; font: 600 13px var(--serif); letter-spacing: .04em; }
+.chip-concentration { color: #c3baa1; }
+.chip-concentration-concentrated { color: #d4be8a; }
+.chip-concentration-high { color: #e6bf7f; }
+.chip-estimate { margin-left: auto; font-size: 10px; color: #a8ad99; }
+.chip-toggle { width: 8px; height: 8px; border-right: 1px solid #c4ac79; border-bottom: 1px solid #c4ac79; transform: rotate(45deg) translateY(-2px); transition: transform 180ms ease; margin-right: 4px; }
+.chip-structure[open] .chip-toggle { transform: rotate(225deg) translate(-1px, -1px); }
+.chip-content { padding: 4px 3px 12px; }
+.chip-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 16px; margin: 6px 0 14px; }
+.chip-metrics dt { margin-bottom: 4px; color: var(--muted); }
+.chip-metrics dd { color: #e3d5b5; font-size: 14px; font-variant-numeric: tabular-nums; }
+.chip-metrics dd > span { margin-left: 5px; font-size: 10px; color: var(--muted); }
+.chip-share-counts { margin: 5px 0; line-height: 1.7; font-variant-numeric: tabular-nums; }
+.chip-share-counts > span { margin: 0 8px; color: #a8996b; }
+.chip-reading { border-top: 1px solid #b6a16b25; margin-top: 10px; padding-top: 9px; }
+.chip-reading p { margin: 0 0 7px; line-height: 1.75; color: #b5bdab; }
+.chip-reading .chip-reading-note { color: #929e8e; font-size: 10px; margin-bottom: 0; }
+@media (max-width: 720px) {
+  .chip-structure > summary { gap: 6px 9px; min-height: 42px; }
+  .chip-metrics { gap: 12px; }
+  .chip-metrics dd { font-size: 14px; }
+}
+@media (max-width: 390px) {
+  .chip-structure > summary { column-gap: 7px; }
+  .chip-estimate { font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chip-structure > summary, .chip-toggle { transition: none; }
+}

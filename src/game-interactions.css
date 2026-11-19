@@ -1,0 +1,203 @@
+/* Physical feedback for the painted controls; live quotes and charts stay still. */
+.game-nav button,
+.wordmark,
+.debt-resource,
+.contract-countdown,
+.primary-button,
+.gold-button,
+.guide-button-primary,
+.submit-order,
+.time-console button,
+.telegram-link,
+.lev-outline {
+  transition: transform 160ms var(--ease-out);
+}
+
+.game-nav button .game-icon,
+.debt-resource .game-icon,
+.contract-countdown .game-icon,
+.telegram-masthead .game-icon {
+  transform-origin: 50% 75%;
+  transition: transform 200ms var(--ease-out), opacity 160ms ease;
+}
+
+.game-nav button .game-icon { opacity: .82; }
+.game-nav button[aria-current] .game-icon { opacity: 1; }
+.game-nav button::before { transition: opacity 160ms ease; }
+.game-nav button::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 4px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 40%, #dfbd743b, #dfbd7400 68%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+.game-nav button[aria-current]::after { opacity: .65; }
+.game-nav button[aria-current] > span { text-shadow: 0 1px 6px #e8bb5266; }
+
+/* Selection lights the row underneath its figures, without moving the figures. */
+.stock-row {
+  position: relative;
+  isolation: isolate;
+}
+.stock-row::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, #d1b7792b, #d1b77908 85%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 125ms ease;
+}
+.stock-row.active::before { opacity: .6; }
+
+.sector-tabs button,
+.side-tabs button,
+.market-chart .chart-mode,
+.time-console-speeds button {
+  position: relative;
+  isolation: isolate;
+}
+.sector-tabs button::after,
+.side-tabs button::after,
+.market-chart .chart-mode::after,
+.time-console-speeds button::after {
+  content: '';
+  position: absolute;
+  inset: auto 18% 0;
+  height: 2px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(.65);
+  transform-origin: center;
+  pointer-events: none;
+  transition: transform 160ms var(--ease-out), opacity 125ms ease;
+}
+.sector-tabs button[aria-pressed="true"]::after,
+.side-tabs button[aria-pressed="true"]::after,
+.time-console-speeds button[aria-pressed="true"]::after {
+  transform: scaleX(1);
+  opacity: .7;
+}
+/* The chart already has a selected underline; this one only previews a hover. */
+.market-chart .chart-mode[aria-pressed="true"]::after { opacity: 0; }
+
+.telegram-link > svg,
+.time-console-next > svg,
+.position-slip header button > svg,
+.impact-sector > svg,
+.primary-button > svg,
+.submit-order > svg {
+  transition: transform 160ms var(--ease-out);
+}
+
+/* Press is real on touch as well; only hover requires a fine pointer. */
+.game-nav button:active:not(:disabled),
+.primary-button:active:not(:disabled),
+.gold-button:active:not(:disabled),
+.guide-button-primary:active:not(:disabled),
+.submit-order:active:not(:disabled),
+.time-console button:active:not(:disabled),
+.lev-outline:active:not(:disabled) {
+  transform: translateY(1px) scale(.97);
+  transition-duration: 100ms;
+}
+.wordmark:active:not(:disabled),
+.debt-resource:active:not(:disabled),
+.contract-countdown:active:not(:disabled),
+.telegram-link:active:not(:disabled) {
+  transform: scale(.98);
+  transition-duration: 100ms;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .game-nav button:hover:not(:disabled)::after { opacity: 1; }
+  .game-nav button:hover:not(:disabled) .game-icon {
+    opacity: 1;
+    transform: translateY(-3px) rotate(-5deg) scale(1.08);
+  }
+  .game-nav button:active:not(:disabled) .game-icon {
+    transform: translateY(0) rotate(0) scale(.98);
+    transition-duration: 100ms;
+  }
+  .debt-resource:hover:not(:disabled) .game-icon,
+  .contract-countdown:hover:not(:disabled) .game-icon {
+    transform: translateY(-2px) rotate(-4deg);
+  }
+  .news-note:has(.telegram-link:hover) .telegram-masthead .game-icon {
+    transform: translateY(-2px) rotate(4deg);
+  }
+  .stock-row:hover::before { opacity: 1; }
+  .sector-tabs button:hover:not(:disabled)::after,
+  .side-tabs button:hover:not(:disabled)::after,
+  .market-chart .chart-mode:hover:not(:disabled)::after,
+  .time-console-speeds button:hover:not(:disabled)::after {
+    transform: scaleX(1);
+    opacity: .45;
+  }
+  .telegram-link:hover > svg,
+  .time-console-next:hover:not(:disabled) > svg,
+  .position-slip header button:hover > svg,
+  .impact-sector:hover > svg,
+  .primary-button:hover:not(:disabled) > svg,
+  .submit-order:hover:not(:disabled) > svg { transform: translateX(3px); }
+  .primary-button:hover:not(:disabled),
+  .gold-button:hover:not(:disabled),
+  .time-console-play:hover:not(:disabled),
+  .submit-order:hover:not(:disabled) { filter: brightness(1.08); }
+}
+
+/* The focus ring remains visible over the illustrated frames and paper. */
+.game-nav button:focus-visible,
+.wordmark:focus-visible,
+.debt-resource:focus-visible,
+.contract-countdown:focus-visible,
+.time-console button:focus-visible {
+  outline: 2px solid #f3d797;
+  outline-offset: 4px;
+}
+.game-nav button:focus-visible::after { opacity: 1; }
+.game-nav button:focus-visible { outline-offset: 1px; }
+.telegram-link:focus-visible { outline-color: #5b4328; }
+
+html[data-input="keyboard"] :is(
+  .game-nav button, .game-nav .game-icon, .wordmark, .debt-resource,
+  .debt-resource .game-icon, .contract-countdown, .contract-countdown .game-icon,
+  .telegram-masthead .game-icon, .primary-button, .gold-button, .guide-button-primary,
+  .submit-order, .time-console button, .telegram-link, .lev-outline,
+  .telegram-link > svg, .time-console-next > svg, .position-slip header button > svg,
+  .impact-sector > svg, .primary-button > svg, .submit-order > svg
+) {
+  transform: none !important;
+  transition: none !important;
+}
+html[data-input="keyboard"] :is(
+  .game-nav button, .stock-row, .sector-tabs button, .side-tabs button,
+  .market-chart .chart-mode, .time-console-speeds button
+)::before,
+html[data-input="keyboard"] :is(
+  .game-nav button, .sector-tabs button, .side-tabs button,
+  .market-chart .chart-mode, .time-console-speeds button
+)::after { transition: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  :is(
+    .game-nav button, .game-nav .game-icon, .wordmark, .debt-resource,
+    .debt-resource .game-icon, .contract-countdown, .contract-countdown .game-icon,
+    .telegram-masthead .game-icon, .primary-button, .gold-button, .guide-button-primary,
+    .submit-order, .time-console button, .telegram-link, .lev-outline,
+    .telegram-link > svg, .time-console-next > svg, .position-slip header button > svg,
+    .impact-sector > svg, .primary-button > svg, .submit-order > svg
+  ) {
+    transform: none !important;
+    transition: opacity var(--motion-reduced-duration, 100ms) ease !important;
+  }
+  :is(.sector-tabs button, .side-tabs button, .market-chart .chart-mode, .time-console-speeds button)::after {
+    transform: none !important;
+    transition: opacity var(--motion-reduced-duration, 100ms) ease;
+  }
+}

@@ -1,0 +1,18 @@
+.limit-board-status { margin: 0 0 14px; border-block: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.limit-board-status > summary { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 14px; min-height: 36px; padding-block: 8px; list-style: none; cursor: pointer; }
+.limit-board-status > summary::-webkit-details-marker { display: none; }
+.limit-board-status > summary:focus-visible { outline: 2px solid #d9bd82; outline-offset: 3px; }
+.limit-board-status strong { font-size: 12px; font-weight: 500; color: #d7c294; }
+.limit-board-sealed strong,.limit-board-closed-limit strong { color: #e89582; }
+.limit-board-opened strong { color: #d8b58d; }
+.limit-board-queue { font-variant-numeric: tabular-nums; }
+.limit-board-explain { margin-left: auto; color: #bda77c; }
+.limit-board-explain::after { content: ' +'; }
+.limit-board-status[open] .limit-board-explain::after { content: ' −'; }
+.limit-board-description { max-width: 65em; padding-bottom: 9px; }
+.limit-board-description p { margin: 0 0 7px; line-height: 1.8; }
+@media (max-width: 720px) {
+  .limit-board-status > summary { gap: 6px 10px; min-height: 40px; }
+  .limit-board-status { font-size: 10px; }
+  .limit-board-status strong { font-size: 11px; }
+}

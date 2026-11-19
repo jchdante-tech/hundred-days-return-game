@@ -1,0 +1,39 @@
+/* Small order receipts keep unmatched requests separate from owned shares. */
+.order-price-guide { margin-top: 9px; font-size: 11px; color: var(--muted); }
+.order-price-guide > div { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 5px 12px; }
+.order-price-guide b { color: #dfc690; font-weight: 500; font-variant-numeric: tabular-nums; }
+.order-price-guide small { font-size: inherit; }
+.order-price-guide p { margin: 5px 0 0; line-height: 1.6; }
+.order-price-guide .text-button { padding: 3px 0; color: #ddc38f; }
+.position-order-note { line-height: 1.7; }
+.recent-stock-orders { padding: 10px 0 12px; border-top: 1px solid #b6a16b35; }
+.recent-stock-orders > header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.recent-stock-orders h2 { margin: 0; font: 500 14px var(--serif); color: #dac79c; }
+.recent-stock-orders .text-button { padding: 3px 0; font-size: 11px; }
+.recent-stock-orders ol { list-style: none; margin: 8px 0 0; padding: 0; }
+.recent-stock-orders li { padding: 7px 0; border-bottom: 1px solid #b6a16b1c; }
+.recent-stock-orders li:last-child { border: 0; padding-bottom: 0; }
+.order-receipt-title, .order-receipt-progress { display: flex; justify-content: space-between; align-items: center; gap: 5px 12px; }
+.order-receipt-title { font-size: 11px; }
+.order-receipt-title > span { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
+.order-receipt-title time { color: var(--muted); }
+.order-receipt-title b { font-weight: 400; color: #ded3b7; }
+.order-receipt-title > strong { font-weight: 500; color: #cbb689; white-space: nowrap; }
+.order-receipt-progress { margin-top: 4px; font-size: 12px; line-height: 1.6; }
+.order-cancel-note, .order-frozen-note { display: block; color: var(--muted); font-size: 11px; line-height: 1.7; margin-top: 3px; }
+.order-progress { font-variant-numeric: tabular-nums; }
+.recent-stock-orders .order-cancel-action { flex: 0 0 auto; padding: 5px 9px; border: 1px solid #bfa26880; border-radius: 3px; background: #c5a96714; color: #efd6a3; font-size: 11px; line-height: 1.5; }
+.recent-stock-orders .order-cancel-action:disabled { opacity: .45; cursor: wait; }
+.order-sale-pending { margin: 5px 0 0; color: #cbbfa2; font-size: 11px; line-height: 1.6; }
+.order-sale-pending strong, .position-sale-pending strong { color: #edcc8d; font-weight: 500; }
+.position-slip .position-quantity-grid { margin-top: 8px; gap: 8px; }
+.position-slip .position-valuation { display: flex; flex-wrap: wrap; gap: 5px 20px; margin: 8px 0 0; }
+.position-slip .position-valuation > div { display: flex; align-items: baseline; gap: 7px; }
+.position-slip .position-valuation dt { margin: 0; }
+.position-slip .position-valuation dd { font-size: 12px; }
+.position-sale-pending { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 3px 10px; margin: 7px 10px 0; font-size: 11px; line-height: 1.5; }
+.position-sale-pending p { margin: 0; color: #d1c3a3; line-height: inherit; }
+.position-sale-pending button { display: inline-flex; align-items: center; gap: 3px; padding: 0; border: 0; background: none; color: #edcc8d; font-size: 11px; }
+.position-slip .position-lock-explanation { margin-top: 5px; margin-bottom: 0; font-size: 10px; line-height: 1.5; }
+@media (max-width: 560px) { .order-receipt-progress { flex-wrap: wrap; } .order-receipt-progress .order-cancel-action { margin-top: 2px; } }
+@media (max-width: 560px) { .order-price-guide small { display: none; } .order-receipt-title { align-items: flex-start; } }

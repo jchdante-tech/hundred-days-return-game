@@ -1,0 +1,58 @@
+.news-note.telegram-feed {
+  display: flex;
+  flex-direction: column;
+  height: clamp(370px, calc(100svh - 370px), 530px);
+  min-height: 0;
+  min-width: 0;
+  padding: 51px 25px 29px;
+}
+.telegram-feed .telegram-masthead { flex: 0 0 auto; margin-bottom: 0; gap: 7px; white-space: nowrap; }
+.telegram-feed .telegram-masthead > svg { flex-shrink: 0; }
+.telegram-feed .telegram-masthead small { font: 11px/1.4 -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif; white-space: nowrap; }
+.telegram-feed-status { display: flex; align-items: center; flex: 0 0 32px; color: #66563c; font-size: 11px; }
+.telegram-feed-status > span,.telegram-feed-status > button { display: inline-flex; align-items: center; gap: 5px; }
+.telegram-feed-status > button { border: 0; background: none; padding: 4px 0; color: #713923; font-size: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.telegram-feed-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-anchor: none;
+  overscroll-behavior-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #8d7752 #a08c5820;
+  scrollbar-gutter: stable;
+  padding-right: 8px;
+  scroll-padding-block: 8px;
+}
+.telegram-feed-list:focus-visible { outline: 1px solid #79603a; outline-offset: 3px; }
+.telegram-feed .telegram-item { padding-block: 3px 20px; overflow-wrap: anywhere; }
+.telegram-feed .telegram-item + .telegram-item { padding-top: 18px; border-top: 1px solid #6b503540; }
+.telegram-feed .telegram-item:last-child { padding-bottom: 6px; }
+.telegram-item-dateline { display: flex; justify-content: space-between; gap: 10px; font-size: 11px; color: #6b573d; }
+.telegram-item-dateline time { font-variant-numeric: tabular-nums; }
+.telegram-feed .telegram-item h3 { margin: 10px 0 9px; color: #3c3222; font: 600 20px/1.55 var(--serif); text-wrap: pretty; }
+.telegram-feed .news-impacts { margin-top: 8px; }
+.telegram-feed .impact-reason { flex-basis: 100%; color: #5b4b32; font-size: 13px; line-height: 1.8; }
+.telegram-feed .telegram-item-body,.telegram-feed .telegram-feed-empty { margin: 8px 0 0; color: #5b4b32; font-size: 13px; line-height: 1.8; }
+.telegram-feed .telegram-link { flex: 0 0 auto; margin-top: 14px; padding-top: 12px; }
+@media (max-width: 1180px) {
+  .news-note.telegram-feed { padding-inline: 22px; }
+  .telegram-feed .telegram-masthead { font-size: 20px; }
+  .telegram-feed .telegram-item h3 { font-size: 19px; }
+}
+@media (max-width: 1000px) {
+  .news-note.telegram-feed { height: 455px; }
+}
+@media (max-width: 720px) {
+  .news-note.telegram-feed { height: 440px; padding: 51px 26px 29px; }
+  .telegram-feed-list { touch-action: pan-y; }
+  .telegram-feed .telegram-link { min-height: 38px; }
+}
+@media (max-width: 360px) {
+  .news-note.telegram-feed { padding-inline: 23px; }
+  .telegram-feed .telegram-masthead { font-size: 19px; gap: 6px; }
+  .telegram-feed .telegram-item h3 { font-size: 18px; }
+}
+
+.news-stage { display: inline-block; margin: 2px 0 7px; padding: 3px 6px; border: 1px solid currentColor; font-size: 10px; letter-spacing: .08em; opacity: .75; }

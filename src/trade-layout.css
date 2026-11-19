@@ -1,0 +1,70 @@
+/* Only rearrange controls inside the existing green trading board.
+   The room, header, navigation, artwork and floating clock retain their original skin/layout. */
+.market-layout .stock-heading h1 { font-size: 23px; margin-bottom: 3px; }
+.market-layout .stock-heading h1 span { display: inline; margin-left: 9px; }
+.market-layout .stock-heading p { margin-top: 2px; max-width: none; }
+.market-layout .operator-seat { margin: 8px 0 12px; padding: 7px 0; }
+.market-layout .operator-desk { padding: 12px 0 0; margin: 0; border-top: 1px solid var(--line); }
+.market-layout .operator-book { gap: 10px; margin-top: 8px; }
+.market-layout .operator-level { min-height: 26px; padding-block: 4px; }
+.market-layout .operator-more { margin-top: 6px; }
+.market-layout .operator-more > summary { padding: 8px 0; }
+.market-layout .simple-trade-ticket { padding: 0 0 12px; }
+.market-layout .side-tabs { display: flex; gap: 6px; margin: 0 0 12px; width: 100%; }
+.market-layout .side-tabs button { flex: 1; min-height: 36px; padding: 7px; font-size: 13px; }
+.market-layout .order-input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.market-layout .order-input-row input { margin-top: 6px; height: 40px; font-size: 17px; padding: 8px 10px; }
+.market-layout .order-foot { gap: 5px 10px; margin: 9px 0; }
+.market-layout .submit-order { width: 100%; min-height: 43px; justify-content: center; }
+.market-layout .ticket-help > summary { padding: 8px 0 0; }
+.market-layout .ticket-fill { padding: 4px 0; margin-top: 5px; }
+.market-layout .stock-facts { margin: 8px 0 0; padding-bottom: 9px; gap: 6px 13px; }
+.market-layout .position-slip { margin-top: 10px; }
+.market-layout .stock-more > summary { padding: 10px 0; }
+.market-layout .trade-shortcuts-buttons button { border-color: #bfa46b70; border-radius: 0; background: #c6ab7010; color: #e0cda1; }
+.market-layout .trade-shortcuts-buttons button[aria-pressed="true"] { background: #b99e6628; }
+.market-layout .trade-receipts { margin-top: 8px; }
+@media (min-width: 1000px) {
+ .market-layout { grid-template-columns: 170px minmax(0,1fr); }
+ .market-layout .trade-desk { padding-top: 4px; padding-left: 20px; }
+ .market-layout .watchlist { padding-top: 4px; }
+ .market-layout .watchlist .section-heading { padding-inline: 8px; margin-bottom: 12px; }
+ .market-layout .sector-tabs { margin-bottom: 12px; }
+ .market-layout .stock-label,.market-layout .stock-row { grid-template-columns: minmax(64px,1fr) 38px 48px; gap: 2px; }
+ .market-layout .stock-row { padding: 8px 6px; }
+ .market-layout .stock-row strong { font-size: 12px; }
+ .market-layout .stock-row b { font-size: 11px; }
+ .market-layout .opening-target-badge { display: block; width: fit-content; margin: 3px 0 0; }
+ .market-layout .operator-workbench { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 20px; align-items: start; }
+ .market-layout .operator-act { border-left: 1px solid var(--line); padding-left: 17px; }
+ .market-layout .market-chart.chart-wrap { margin-top: 0; }
+ .market-layout .market-chart .price-chart { height: 210px; }
+ .market-layout .market-chart .chart-range-hint { display: none; }
+ .market-layout .market-chart .chart-history-note { font-size: 9px; }
+ .market-layout .market-chart .chart-player-legend { font-size: 9px; }
+ .market-layout .market-chart .chart-player-legend small { display: none; }
+ .market-layout .position-slip .position-quantity-grid { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 7px; padding-inline: 8px; }
+ .market-layout .position-slip .position-quantity-grid dt { font-size: 10px; }
+ .market-layout .position-slip .position-quantity-grid dd { font-size: 13px; }
+ .market-layout .operator-desk h2 { font-size: 14px; }
+ .market-layout .operator-desk > header > span { font-size: 9px; }
+}
+@media (min-width: 1400px) {
+ .market-layout { grid-template-columns: 190px minmax(0,1fr); }
+ .market-layout .operator-workbench { grid-template-columns: minmax(0,1fr) 340px; gap: 24px; }
+ .market-layout .market-chart .price-chart { height: 240px; }
+ .market-layout .market-chart .chart-range-hint { display: inline; }
+}
+@media (min-width: 721px) and (max-width: 999px) {
+ .market-layout { grid-template-columns: 165px minmax(0,1fr); }
+ .market-layout .operator-workbench { display: block; }
+ .market-layout .operator-act { margin-top: 16px; }
+}
+@media (max-width: 720px) {
+ .market-layout .operator-workbench { display: flex; flex-direction: column; gap: 16px; }
+ .market-layout .operator-observe,.market-layout .operator-act { width: 100%; min-width: 0; }
+ .market-layout .operator-act { border-top: 1px solid var(--line); padding-top: 12px; }
+ .market-layout .market-chart .price-chart { height: 200px; }
+ .market-layout .position-slip .position-quantity-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px 16px; }
+ .market-layout .order-receipt-progress { flex-wrap: wrap; }
+}

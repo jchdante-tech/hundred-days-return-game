@@ -1,0 +1,35 @@
+.opening-spotlight-guide { position:fixed; inset:0; z-index:1200; pointer-events:none; color:#eee3c5; }
+.opening-shades > div,.opening-shade-full { position:fixed; background:#020b0baf; pointer-events:auto; }
+.opening-shade-full { inset:0; }
+.opening-spotlight { position:fixed; border:2px solid #efd08a; border-radius:5px; box-shadow:0 0 0 4px #e4c07428,0 0 22px #e4c07425; pointer-events:none; }
+.opening-coach { position:fixed; width:min(320px,calc(100vw - 24px)); padding:16px 18px; max-height:calc(100dvh - 24px); overflow-y:auto; pointer-events:auto; border:1px solid #ba9e63; border-radius:6px; background:#142920; box-shadow:0 12px 38px #0009; }
+.opening-coach header { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; color:#c8b782; font-size:11px; }
+.opening-coach header button { display:grid; place-items:center; padding:5px; border:0; background:none; color:#b9bdab; cursor:pointer; }
+.opening-coach h2 { margin:0 0 9px; color:#f1e1b7; font:500 21px/1.45 var(--serif); outline:none; }
+.opening-coach p { margin:0; font-size:12px; line-height:1.8; color:#c8d0bc; }
+.opening-coach .opening-instruction { display:flex; align-items:flex-start; gap:6px; margin-top:12px; color:#ead198; }
+.opening-instruction svg { flex:none; margin-top:4px; }
+.opening-coach .opening-saving { margin-top:7px; font-size:11px; color:#b1bda7; }
+.opening-coach footer { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:14px; }
+.opening-coach button { font-family:inherit; }
+.opening-skip { padding:9px 0; font-size:11px; color:#acb9a6; background:none; border:0; cursor:pointer; }
+.opening-next { display:flex; align-items:center; gap:6px; padding:9px 12px; min-height:38px; font-size:12px; color:#192e24; background:#dcc28b; border:1px solid #f1d69d; border-radius:3px; cursor:pointer; }
+.opening-next:disabled { opacity:.4; cursor:default; }
+.opening-coach button:focus-visible { outline:2px solid #f3d18a; outline-offset:3px; }
+.simple-trade-ticket { margin-top:10px; }
+.simple-trade-ticket .side-tabs { display:grid; grid-template-columns:1fr 1fr; margin:0 0 15px; }
+.simple-trade-ticket .side-tabs button { padding:10px; font-size:14px; }
+.simple-trade-ticket .order-input-row { display:grid; grid-template-columns:1fr 1fr; }
+.simple-trade-ticket .submit-order { width:100%; margin-top:12px; min-height:44px; }
+.simple-trade-ticket .order-foot { gap:6px; flex-wrap:wrap; font-size:11px; }
+.simple-trade-ticket .ticket-fill { margin-top:10px; padding:6px 0; border:0; background:none; color:#ddc493; font-size:11px; text-decoration:underline; text-underline-offset:3px; }
+.simple-trade-ticket .ticket-fill:disabled { opacity:.4; }
+.simple-trade-ticket .ticket-help { font-size:11px; color:#a7b59f; }
+.simple-trade-ticket .ticket-help > summary { padding:8px 0; cursor:pointer; }
+@media(max-width:600px) {
+ .opening-coach { padding:13px 15px; max-height:min(45dvh,330px); }
+ .opening-coach h2 { font-size:19px; }
+ .opening-coach p { font-size:12px; line-height:1.7; }
+ .opening-coach header { margin-bottom:7px; }
+ .opening-coach footer { margin-top:10px; }
+}

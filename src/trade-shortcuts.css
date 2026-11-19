@@ -1,0 +1,10 @@
+.trade-shortcuts { margin-top:8px; }
+.trade-shortcuts-buttons { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
+.trade-shortcuts-buttons button { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:3px 6px; min-width:0; min-height:34px; padding:6px 4px; border:1px solid #61715d; border-radius:3px; color:#dce2c7; background:#172c23; font:inherit; font-size:12px; cursor:pointer; }
+.trade-shortcuts-buttons button span { white-space:nowrap; }
+.trade-shortcuts-buttons button small { color:#aaba9f; font-size:10px; white-space:nowrap; }
+.trade-shortcuts-buttons button[aria-pressed="true"] { border-color:#d8bd80; color:#f0d9a8; background:#3b412a; }
+.trade-shortcuts-buttons button:not(:disabled):hover { border-color:#d8bd80; }
+.trade-shortcuts-buttons button:focus-visible { outline:2px solid #f3d18a; outline-offset:2px; }
+.trade-shortcuts-buttons button:disabled { opacity:.38; cursor:not-allowed; }
+.trade-shortcuts-note { margin:5px 0 0; color:#a7b59f; font-size:10px; line-height:1.5; }

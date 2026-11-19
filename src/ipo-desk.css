@@ -1,0 +1,25 @@
+.ipo-desk { position:relative; isolation:isolate; padding: 22px 23px; color: #ded9bb; margin-bottom: 16px; font-size: 12px; }
+.ipo-desk::before { content:''; position:absolute; inset:0; z-index:-1; border:20px solid transparent; border-image:url('/art/ui-board-v4.png') 180 fill / 20px / 0 stretch; pointer-events:none; }
+.ipo-listing-note { font-size: 11px; color: #c6af79; line-height: 1.7; margin: -8px 0 12px; }
+.ipo-desk-heading, .ipo-offer-title, .ipo-prospectus dl > div, .ipo-archive p { display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+.ipo-desk-heading { color:#c5a86e; margin-bottom:13px; font-family:var(--serif); font-size:17px; }
+.ipo-desk-heading small, .ipo-offer-title > span { font:11px/1.5 sans-serif; color:#a9b2a0; }
+.ipo-offer-title strong { font:20px/1.5 var(--serif); }
+.ipo-price { margin:8px 0; display:flex; flex-wrap:wrap; gap:8px; }
+.ipo-quota, .ipo-rules { color:#9faa98; line-height:1.7; font-size:11px; }
+.ipo-prospectus { border-top:1px solid #b39e5c30; padding-top:10px; margin-top:12px; }
+.ipo-prospectus summary, .ipo-archive summary { color:#c6af79; cursor:pointer; }
+.ipo-prospectus > p { line-height:1.8; }
+.ipo-prospectus dl { display:grid; gap:8px; }
+.ipo-prospectus dt { color:#a7b2a0; }
+.ipo-prospectus dd { margin:0; text-align:right; }
+.ipo-prospectus label { display:grid; gap:7px; }
+.ipo-prospectus input { width:100%; min-width:0; background:#091715; color:#e6dfc0; border:1px solid #aa98634d; padding:10px; }
+.ipo-form-actions { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+.ipo-form-actions button { flex:1; padding:9px 8px; border:1px solid #b39c6066; background:transparent; color:#c6af79; }
+.ipo-form-actions .ipo-subscribe { background:#b9a071; color:#17251f; }
+.ipo-cancel, .ipo-open-stock, .ipo-archive button { border:0; background:none; color:#c6af79; padding:9px 0; text-align:left; }
+.ipo-archive { margin-top:14px; padding-top:12px; border-top:1px solid #b39e5c30; }
+.ipo-desk button:disabled { opacity:.4; cursor:not-allowed; }
+.ipo-desk button:focus-visible, .ipo-desk summary:focus-visible { outline:2px solid #d6b56f; outline-offset:3px; }
+@media(max-width:720px) { .ipo-desk { margin:0 0 16px; padding:22px; } }

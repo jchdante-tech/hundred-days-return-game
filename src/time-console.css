@@ -1,0 +1,137 @@
+.time-console {
+  position: fixed;
+  z-index: 60;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  width: 344px;
+  padding: 12px 14px 8px;
+  color: #f1e6ca;
+  background: #142528;
+  border: 1px solid #8c7958;
+  border-radius: 5px;
+  box-shadow: 0 10px 32px #0006, inset 0 0 0 3px #101d20, inset 0 4px 0 #c5a57426;
+  font-variant-numeric: tabular-nums;
+}
+
+.time-console-clock,
+.time-console-time,
+.time-console-state,
+.time-console-next,
+.time-console-next > span {
+  display: flex;
+  align-items: center;
+}
+
+.time-console-clock {
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 30px;
+  margin-bottom: 8px;
+}
+
+.time-console-time { gap: 9px; }
+.time-console-time strong { font-size: 24px; line-height: 1; font-weight: 500; letter-spacing: -.04em; }
+.time-console-day { font-size: 11px; color: #b6b29e; }
+.time-console-phase { font-size: 12px; color: #ddd2b7; white-space: nowrap; }
+.time-console-state { gap: 5px; color: #b6b29e; font-size: 11px; white-space: nowrap; }
+.time-console-state i { width: 5px; height: 5px; background: #b6b29e; border-radius: 50%; }
+.time-console[data-running="true"] .time-console-state i { background: #86b99d; }
+
+.time-console-controls { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; }
+.time-console button { border-radius: 2px; line-height: 1.2; }
+.time-console button:disabled { opacity: .48; cursor: not-allowed; }
+.time-console button:focus-visible { outline: 2px solid #f1e6ca; outline-offset: 3px; }
+.time-console-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 43px;
+  padding: 8px 12px;
+  border: 1px solid #dbc296;
+  color: #192628;
+  background: #c5a574;
+  box-shadow: inset 0 -2px 0 #8b704a;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.time-console-speeds { display: flex; gap: 3px; }
+.time-console-speeds button {
+  min-width: 42px;
+  padding: 7px 5px;
+  color: #d7cbb0;
+  background: #101d20;
+  border: 1px solid #59645e;
+  font-size: 14px;
+}
+.time-console-speeds button span { font-size: 11px; margin-left: 1px; }
+.time-console-speeds button[aria-pressed="true"] { background: #3f493d; border-color: #c5a574; color: #f1e6ca; }
+
+.time-console-next {
+  width: 100%;
+  min-height: 33px;
+  justify-content: space-between;
+  padding: 7px 0 0;
+  border: 0;
+  background: none;
+  color: #cfc3a7;
+  font-size: 12px;
+}
+.time-console-next > span { gap: 7px; }
+
+/* Drag only by the clock heading, leaving trading-time buttons independent. */
+.time-console .time-console-drag-handle {
+  border: 0; padding: 0; background: none; color: inherit; text-align: left;
+  cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none;
+  position: relative; transform: none; transition: none; flex-shrink: 1; min-width: 0;
+}
+.time-console-grip { position: absolute; left: -10px; top: 50%; transform: translateY(-50%); color: #cbb17b; font-size: 12px; line-height: 1; }
+.time-console[data-dragging="true"] .time-console-drag-handle { cursor: grabbing; }
+.time-console-status-tools { display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
+.time-console .time-console-reset { padding: 3px 0 3px 7px; border: 0; border-left: 1px solid #b49b6050; background: none; color: #d4bd85; font-size: 10px; white-space: nowrap; }
+.time-console .time-console-drag-handle:hover { color: #f6dfac; }
+.time-console .time-console-drag-handle:active:not(:disabled) { transform: none; }
+
+/* Pointer press feedback on the action buttons. */
+@media (hover: hover) and (pointer: fine) {
+  .time-console button { transition: transform 150ms var(--ease-out, cubic-bezier(.23, 1, .32, 1)); }
+  .time-console-play:hover:not(:disabled) { background: #d2b486; }
+  .time-console-speeds button:hover:not(:disabled) { border-color: #c5a574; }
+  .time-console-next:hover:not(:disabled) { color: #f1e6ca; }
+  .time-console button:active:not(:disabled) { transform: scale(.97); }
+}
+
+html[data-input="keyboard"] .time-console button { transition: none; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .time-console button { transition: none; }
+  .time-console button:active:not(:disabled) { transform: none; }
+}
+
+@media (max-width: 720px) {
+  .time-console {
+    left: max(12px, env(safe-area-inset-left));
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    width: calc(100% - 24px);
+    padding: 8px 12px 5px;
+  }
+  .time-console-clock { min-height: 25px; margin-bottom: 6px; }
+  .time-console-time strong { font-size: 22px; }
+  .time-console-controls { gap: 10px; }
+  .time-console-play { min-height: 40px; }
+  .time-console-speeds button { min-width: 44px; }
+  .time-console-next { min-height: 29px; padding-top: 5px; }
+}
+
+@media (min-width:1001px) and (max-width:1180px) {
+  .time-console { width: 296px; }
+  .time-console-day { display: none; }
+  .time-console .time-console-time { gap: 5px; }
+  .time-console .time-console-time strong { font-size: 22px; }
+  .time-console-phase { font-size: 11px; }
+  .time-console-state { font-size: 10px; }
+  .time-console-status-tools { gap: 5px; }
+  .time-console-controls { gap: 7px; }
+  .time-console-speeds button { min-width: 38px; }
+}
